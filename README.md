@@ -1,10 +1,10 @@
 
-# Devi - Tailwind CSS Developer Portfolio Template
+# My Tailwind CSS Developer Portfolio
 
-#### Thank you very much for downloading my template!
+#### This is my dev portfolio made with html, tailwind css and JavaScript!
 
 ### Preview 
-![template preview](https://res.cloudinary.com/di32yybrd/image/upload/v1645564867/template%20tailwind/Untitled_design_6_vbvhyq.png)
+![template courtesy of Andreea](https://twitter.com/AndreeaEgli)
 
 ### Getting started
 
@@ -17,10 +17,9 @@
  * npm run dev 
 
 
- **PS: Please report any bugs you encounter 
- and feel free to share with me your projects built on this template :)** 
+ **PS: If you like this template, feel free to fork and use it. Remember to appreciate the template author Andreea Egli:)** 
 
- #### You can find me here: https://twitter.com/AndreeaEgli or here egli.andreea@gmail.com
+ #### You can find her here: https://twitter.com/AndreeaEgli or here egli.andreea@gmail.com
 
 
 
