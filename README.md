@@ -3,8 +3,10 @@
 
 #### This is my dev portfolio made with html, tailwind css and JavaScript!
 
+## Template courtesy of Andreea Egli
+
 ### Preview 
-![template courtesy of Andreea](https://twitter.com/AndreeaEgli)
+![portfolio preview](/layouts/assets/preview.png)
 
 ### Getting started
 
