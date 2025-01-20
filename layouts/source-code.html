@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>The Josh - Source Code</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/favicon-16x16.png">
+    <link rel="manifest" href="https://res.cloudinary.com/thejm/raw/upload/v1670264096/devPortfolio/site.webmanifest">
+    <style>
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: #F80095;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rotation {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .content-section {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-section.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-card {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border: 1px solid rgba(248, 0, 149, 0.2);
+            transform: scale(0.8) translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-section.show .popup-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section.show h1,
+        .content-section.show p,
+        .content-section.show .flex {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .content-section.show h1 { animation-delay: 0.2s; }
+        .content-section.show p { animation-delay: 0.4s; }
+        .content-section.show .flex { animation-delay: 0.6s; }
+
+        .content-section h1,
+        .content-section p,
+        .content-section .flex {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-primary" id="top">
+    
+    <!-- Navbar -->
+    <header class="font-poppins font-medium text-lg sticky top-0">
+        <nav class="bg-primary shadow-lg flex justify-between items-center mx-auto px-8 md:px-14 py-6 lg:px-24 w-full">
+            <div class="text-3xl font-bold text-white">Joshua Ezekiel</div>
+                <div class="hidden md:flex space-x-12 items-center text-white">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>       
+                    <a href="index.html#projects">Projects</a>
+                    <a href="index.html#skills">Skills</a>
+                    <a href="index.html#contact">
+                        <button class="px-6 py-2 bg-button font-bold rounded-xl hover:border-2 hover:bg-slate-800">
+                            Contact
+                        </button>
+                    </a>
+                </div>
+        
+                <!-- Mobile menu -->
+                <div class="mobile-menu hidden md:hidden text-white mt-4">
+                    <a href="index.html#about" class="block py-2 px-16 rounded text-lg hover:bg-gray-700">About</a>
+                    <a href="index.html#projects" class="block py-2 px-16 rounded text-lg hover:bg-gray-700">Projects</a>
+                    <a href="index.html#skills" class="block py-2 px-16 rounded text-lg hover:bg-gray-700">Skills</a>
+                    <a href="index.html#contact" class="block py-2 px-16 rounded text-sm hover:bg-gray-700">
+                        <button class="px-6 py-2 bg-button font-bold rounded-xl hover:bg-[#F80095]">
+                            Contact
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Mobile button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <svg class="w-10 h-10 bg-[#F80095] rounded text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+    </header>
+
+    <!-- Loading Spinner -->
+    <span class="loader" id="loader"></span>
+
+    <!-- Main Content -->
+    <section class="container my-auto mx-auto px-8 md:px-14 lg:px-24 content-section min-h-screen flex items-center justify-center" id="content">
+        <div class="popup-card max-w-3xl text-center p-12 md:min-h-[500px] lg:min-h-[600px] flex flex-col justify-center">
+            <h1 class="font-semibold font-poppins text-4xl text-white md:text-2xl lg:text-5xl mb-12">Source Code</h1><br>
+            <p class="text-white text-xl font-montserrat leading-relaxed mb-12">
+                This project was built for a client, it is not a personal project, hence I do not have the permission to share the source code.
+                Thanks for your understanding.
+            </p><br>
+            <div class="flex justify-center">
+                <a href="index.html#projects" class="inline-block mt-auto px-8 py-4 bg-button text-white font-bold rounded-xl hover:bg-[#F62BA5] transition duration-300 md:w-auto lg:w-1/4 w-1/2 mx-4">
+                    Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer class="bg-primary p-10">
+        <div class="container flex flex-row flex-wrap justify-evenly">
+            <div class="flex flex-row flex-wrap  md:flex-col justify-center items-center">
+                <div class="flex mt-16 mb-6 flex-row space-x-6 justify-center">
+                    <h1 class="text-white font-montserrat font-bold text-lg">Socials</h1>
+                        <a href="#" class="">
+                            <img width="36" height="45" src="https://res.cloudinary.com/thejm/image/upload/v1670238826/devPortfolio/linkedin-icon.svg" alt="Linkedin" class="text-white -mt-1"/>
+                        </a>
+                        <a href="#" class="">
+                            <img width="24" height="40" src="https://res.cloudinary.com/thejm/image/upload/v1670238825/devPortfolio/github-icon.svg" alt="GitHub" class=" text-white mt-1"/>
+                        </a>
+                        <a href="#" class="">
+                            <img width="25" height="35" src="https://res.cloudinary.com/thejm/image/upload/v1736399365/fa6-brands--x-twitter-white.png" alt="X-Twitter" class="text-white mt-1"/>
+                        </a>
+                        <a href="#" class="">
+                            <img width="32" height="40" src="https://res.cloudinary.com/thejm/image/upload/v1737324730/devPortfolio/discord-icon.svg" alt="Discord" class="text-white"/>
+                        </a>
+                </div>
+                <div class="mt-6 mb-16">
+                    <p class="main-font text-lg font-montserrat">
+                        &copy; The Josh
+                        <span id="copyright">
+                            <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Loading and content reveal functionality
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const content = document.getElementById('content');
+
+            // Show loader for 2 seconds
+            setTimeout(() => {
+                // Fade out loader
+                loader.classList.add('fade-out');
+                
+                // Remove loader and show content
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    content.classList.add('show');
+                }, 500);
+            }, 2000);
+        });
+    </script>
+    
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6aba678ef206494db1cd68e080880e48"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</body>
+</html>
