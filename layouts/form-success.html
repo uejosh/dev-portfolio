@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>The Josh - Source Code</title>
+    <title>The Josh - Form Submit Success</title>
     <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/1apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/1favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/thejm/image/upload/v1670264095/devPortfolio/1favicon-16x16.png">
@@ -137,14 +137,13 @@
     <!-- Main Content -->
     <section class="container my-auto mx-auto px-8 md:px-14 lg:px-24 content-section min-h-screen flex items-center justify-center" id="content">
         <div class="popup-card max-w-3xl text-center p-12 md:min-h-[500px] lg:min-h-[600px] flex flex-col justify-center">
-            <h1 class="font-semibold font-poppins text-4xl text-white md:text-2xl lg:text-5xl mb-12">Source Code</h1><br>
+            <h1 class="font-semibold font-poppins text-4xl text-white md:text-2xl lg:text-5xl mb-12">Message Sent!</h1><br>
             <p class="text-white text-xl font-montserrat leading-relaxed mb-12">
-                This project was built for a client, it is not a personal project, hence I do not have the permission to share the source code.
-                Thanks for your understanding.
+                Thank you for getting in touch! <br> Your form has been submitted successfully. You will get a response through the email you provided as soon as possible.
             </p><br>
             <div class="flex justify-center">
-                <a href="index.html#projects" class="inline-block mt-auto px-8 py-4 bg-button text-white font-bold rounded-xl hover:bg-[#F62BA5] transition duration-300 md:w-auto lg:w-1/4 w-1/2 mx-4">
-                    Back to Projects
+                <a href="index.html" class="inline-block mt-auto px-8 py-4 bg-button text-white font-bold rounded-xl hover:bg-[#F62BA5] transition duration-300 md:w-auto lg:w-1/4 w-1/2 mx-4">
+                    Back to Homepage
                 </a>
             </div>
         </div>
@@ -195,7 +194,7 @@
             const loader = document.getElementById('loader');
             const content = document.getElementById('content');
 
-            // Show loader for 2 seconds
+            // Show loader for 1 seconds
             setTimeout(() => {
                 // Fade out loader
                 loader.classList.add('fade-out');
@@ -205,7 +204,7 @@
                     loader.style.display = 'none';
                     content.classList.add('show');
                 }, 500);
-            }, 2000);
+            }, 1000);
         });
     </script>
     
